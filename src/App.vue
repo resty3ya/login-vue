@@ -1,17 +1,33 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import PageHeader from "./components/PageHeader.vue";
+import PageFooter from "./components/PageFooter.vue";
+import SideMenu from "./components/SideMenu.vue";
+import PageContent from "./components/PageContent.vue";
+import "tailwindcss/tailwind.css";
+
+export default {
+  name: "App",
+  components: { PageHeader, PageFooter, SideMenu, PageContent },
+};
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container mx-auto">
+    <header class="w-full">
+      <PageHeader />
+    </header>
+    <div class="flex space-x-4">
+      <div class="w-1/6">
+        <SideMenu />
+      </div>
+      <div class="w-5/6">
+        <PageContent />
+      </div>
+      <footer class="w-full">
+        <PageFooter />
+      </footer>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
